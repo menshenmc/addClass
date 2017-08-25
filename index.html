@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>添加一行，减少一行</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="./style.css"/>
+<script src="./jquery-1.7.2.min.js"></script>
+</head>
+<html>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td><input type="text" name="name" /></td>
+			<td><input type="text" name="age" /></td>
+			<td><input type="text" name="sex" /></td>
+		</tr>
+	</table>
+	<button id="add">增加一行</button>
+	<button id="remove">减少一行</button>
+</html>
+<script>
+$(function(){
+	
+	//增加一行
+	$("#add").click(function(){
+		var len = $("table tr").length;
+		$("table").append('<tr id="'+len+'"><td>'+len+'</td><td><input type="text" name="name" /><td><input type="text" name="age" /></td><td><input type="text" name="sex" /></td></tr>');
+	})
+	
+	//减少一行
+	$("#remove").click(function(){
+		var len = $("table tr").length;
+		if(len>1){
+			$("tr[id='"+(len-1)+"']").remove(); 
+		}
+	})
+	
+})
+</script>
